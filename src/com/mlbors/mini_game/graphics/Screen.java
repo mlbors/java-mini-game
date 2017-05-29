@@ -1,5 +1,7 @@
 package com.mlbors.mini_game.graphics;
 
+import java.util.Random;
+
 /**
  * Mini Game - Screen.java
  * 
@@ -18,6 +20,7 @@ public class Screen {
 	/*****/
 	
 	public int[] pixels;
+	public int[] tiles = new int[64 * 64];
 	
 	/*****/
 	/***** PRIVATE *****/
@@ -26,9 +29,7 @@ public class Screen {
 	private int width;
 	private int height;
 	
-	private int counter = 0;
-	private int xtime = 0;
-	private int ytime = 0;
+	private Random random = new Random();
 	
 	/****************************************/
 	/****************************************/
@@ -43,9 +44,15 @@ public class Screen {
 	 */
 	
 	public Screen(int width, int height) {
+		
 		this.width = width;
 		this.height = height;
 		pixels = new int[width * height];
+		
+		for (int i = 0; i < 64 * 64; i++) {
+			tiles[i] = random.nextInt(0xffffff);
+		}
+		
 	}
 	
 	/****************************************/
@@ -60,30 +67,22 @@ public class Screen {
 	 */
 	
 	public void render() {
-		
-		counter++;
-		
-		if (counter % 10 == 0) {
-			xtime++;
-		}
-		
-		if (counter % 5 == 0) {
-			ytime++;
-		}
-		
+				
 		for (int y = 0; y < height; y++) {
 			
-			if (ytime >= height || ytime < 0) {
+			if (y >= height || y < 0) {
 				break;
 			}
 			
 			for (int x = 0; x < width; x++) {
 				
-				if (xtime >= width || xtime < 0) {
+				if (x >= width || x < 0) {
 					break;
 				}
 				
-				pixels[xtime+ytime*width] = 0xff00ff;
+				int tileIndex = (x >> 4) + (y >> 4) * 64;
+				pixels[x+y*width] = tiles[tileIndex];
+				
 			}
 			
 		}
