@@ -32,6 +32,8 @@ public class Game extends Canvas implements Runnable {
 	public static int width = 300;
 	public static int height = width / 16 * 9;
 	public static int scale = 3;
+	public int x = 0;
+	public int y = 0;
 	public static String title = "Mini Game";
 	
 	/*****/
@@ -173,7 +175,8 @@ public class Game extends Canvas implements Runnable {
 	 */
 	
 	public void update() {
-		
+		y++;
+		x++;
 	}
 	
 	/****************************************/
@@ -196,7 +199,7 @@ public class Game extends Canvas implements Runnable {
 		}
 		
 		screen.clear();
-		screen.render();
+		screen.render(x, y);
 		
 		for (int i = 0; i < pixels.length; i++) {
 			pixels[i] = screen.pixels[i];
