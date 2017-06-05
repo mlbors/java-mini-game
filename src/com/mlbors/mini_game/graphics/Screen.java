@@ -67,6 +67,8 @@ public class Screen {
 	/******************/
 	
 	/**
+	 * @param Int xOffset x increment
+	 * @param Int yOffset y increment
 	 * @return void
 	 */
 	
@@ -76,21 +78,9 @@ public class Screen {
 			
 			int yy = y + yOffset;
 			
-			/*
-			if (yy >= height || yy < 0) {
-				break;
-			}
-			*/
-			
 			for (int x = 0; x < width; x++) {
 				
 				int xx = x + xOffset;
-				
-				/*
-				if (xx >= width || xx < 0) {
-					break;
-				}
-				*/
 				
 				int tileIndex = ((xx >> 4) & MAP_SIZE_MASK) + ((yy >> 4) & MAP_SIZE_MASK) * MAP_SIZE;
 				pixels[x+y*width] = tiles[tileIndex];

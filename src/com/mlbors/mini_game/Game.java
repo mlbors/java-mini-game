@@ -11,6 +11,7 @@ import java.awt.image.DataBufferInt;
 import javax.swing.JFrame;
 
 import com.mlbors.mini_game.graphics.Screen;
+import com.mlbors.mini_game.input.Keyboard;
 
 /**
  * Mini Game - Game.java
@@ -52,6 +53,8 @@ public class Game extends Canvas implements Runnable {
 	
 	private Screen screen;
 	
+	private Keyboard key;
+	
 	/****************************************/
 	/****************************************/
 	
@@ -65,8 +68,10 @@ public class Game extends Canvas implements Runnable {
 		setPreferredSize(size);
 		
 		screen = new Screen(width, height);
-		
 		frame = new JFrame();
+		key = new Keyboard();
+		
+		frame.addKeyListener(key);
 		
 	}
 	
@@ -175,8 +180,14 @@ public class Game extends Canvas implements Runnable {
 	 */
 	
 	public void update() {
-		y++;
-		x++;
+		
+		key.update();
+		
+		if (key.up) y--;
+		if (key.down) y++;
+		if (key.left) x--;
+		if (key.right) x++;
+
 	}
 	
 	/****************************************/
@@ -222,6 +233,7 @@ public class Game extends Canvas implements Runnable {
 	/****************/
 	
 	/**
+	 * @param Array args
 	 * @return void
 	 */
 	
