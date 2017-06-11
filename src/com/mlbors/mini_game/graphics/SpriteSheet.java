@@ -23,13 +23,13 @@ public class SpriteSheet {
 	/*****/
 	
 	public int[] pixels;
+	public int size;
 	
 	/*****/
 	/***** PRIVATE *****/
 	/*****/
 	
 	private String path;
-	private int size = 256;
 	
 	/****************************************/
 	/****************************************/
@@ -37,6 +37,12 @@ public class SpriteSheet {
 	/***********************/
 	/***** CONSTRUCTOR *****/
 	/***********************/
+	
+	/**
+	 * 
+	 * @param String path path to spritesheet
+	 * @param Int size size of the spritesheet
+	 */
 	
 	public SpriteSheet(String path, int size) {
 		
