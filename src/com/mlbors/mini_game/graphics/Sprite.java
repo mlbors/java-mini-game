@@ -23,7 +23,7 @@ public class Sprite {
 	/***** PRIVATE *****/
 	/*****/
 	
-	private int size;
+	public int size;
 	private int x, y;
 	private SpriteSheet sheet;
 	
@@ -34,7 +34,7 @@ public class Sprite {
 	/***** GRASS *****/
 	/*****************/
 	
-	public static Sprite grass = new Sprite(16, 0, 0, null);
+	public static Sprite grass = new Sprite(16, 0, 0, SpriteSheet.tiles);
 	
 	/****************************************/
 	/****************************************/
