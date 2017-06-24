@@ -2,6 +2,8 @@ package com.mlbors.mini_game.graphics;
 
 import java.util.Random;
 
+import com.mlbors.mini_game.level.tile.Tile;
+
 /**
  * Mini Game - Screen.java
  * 
@@ -84,12 +86,34 @@ public class Screen {
 				
 				int xp = x + xOffset;
 				if (xp < 0 || xp >= width) continue;
-				pixels[xp + yp * width] = Sprite.grass.pixels[(x&15) + (y&15) * Sprite.grass.size];
+				pixels[xp + yp * width] = Sprite.grass.pixels[(x & 15) + (y & 15) * Sprite.grass.size];
 				
 			}
 			
 		}
 		
+	}
+	
+	/****************************************/
+	/****************************************/
+	
+	/***********************/
+	/***** RENDER TILE *****/
+	/***********************/
+	
+	/**
+	 * @param Int xp x position
+	 * @param Int yp y position
+	 * @param Tile tile used tile
+	 * @return void
+	 */
+	
+	public void renderTile(int xp, int yp, Tile tile) {
+		
+		for (int y = 0; y < tile.sprite.size; y++) {	
+			int ya = y + yp;
+		}
+	
 	}
 	
 	/****************************************/
