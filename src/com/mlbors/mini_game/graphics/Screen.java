@@ -111,7 +111,18 @@ public class Screen {
 	public void renderTile(int xp, int yp, Tile tile) {
 		
 		for (int y = 0; y < tile.sprite.size; y++) {	
+			
 			int ya = y + yp;
+			
+			for (int x = 0; x < tile.sprite.size; x++) {	
+				
+				int xa = x + xp;
+				
+				if (xa < 0 || xa >= width || ya < 0 || ya >= width) break; 
+				pixels[xa + ya * width] = tile.sprite.pixels[x + y * tile.sprite.size];
+				
+			}
+			
 		}
 	
 	}
