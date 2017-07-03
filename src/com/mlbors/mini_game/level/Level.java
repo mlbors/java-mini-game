@@ -1,6 +1,7 @@
 package com.mlbors.mini_game.level;
 
 import com.mlbors.mini_game.graphics.Screen;
+import com.mlbors.mini_game.level.tile.Tile;
 
 /**
  * Mini Game - Level.java
@@ -128,6 +129,30 @@ public class Level {
 	 */
 	
 	public void render(int xScroll, int yScroll, Screen screen) {
+		
+		int x0 = xScroll >> 4;
+		int x1 = (xScroll + screen.width) >> 4;
+		int y0 = yScroll >> 4;
+		int y1 = (yScroll + screen.height) >> 4;
+		
+	}
+	
+	/****************************************/
+	/****************************************/
+	
+	/********************/
+	/***** GET TILE *****/
+	/********************/
+	
+	/*
+	 * @param Int x tile's x position
+	 * @param Int y tile's y position
+	 */
+	
+	public Tile getTitle(int x, int y) {
+		
+		if (tiles[x + y * width] == 0) return Tile.grass;
+		return Tile.voidTile;
 		
 	}
 	

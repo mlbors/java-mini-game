@@ -27,13 +27,12 @@ public class Screen {
 	public int[] pixels;
 	public int[] tiles = new int[MAP_SIZE * MAP_SIZE];
 	
+	public int width;
+	public int height;
 	
 	/*****/
 	/***** PRIVATE *****/
 	/*****/
-	
-	private int width;
-	private int height;
 	
 	private Random random = new Random();
 	

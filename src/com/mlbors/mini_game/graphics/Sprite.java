@@ -39,6 +39,33 @@ public class Sprite {
 	/****************************************/
 	/****************************************/
 	
+	/****************/
+	/***** VOID *****/
+	/****************/
+	
+	public static Sprite voidSprite = new Sprite(16, 0);
+	
+	/****************************************/
+	/****************************************/
+	
+	/***********************/
+	/***** CONSTRUCTOR *****/
+	/***********************/
+	
+	/**
+	 * @param Int size size of the sprite
+	 * @param Int colour
+	 */
+	
+	public Sprite(int size, int colour) {
+		this.size = size;
+		pixels = new int[this.size * this.size];
+		setColour(colour);
+	}
+	
+	/****************************************/
+	/****************************************/
+	
 	/***********************/
 	/***** CONSTRUCTOR *****/
 	/***********************/
@@ -59,6 +86,27 @@ public class Sprite {
 		pixels = new int[this.size * this.size];
 		
 		load();
+		
+	}
+	
+	/****************************************/
+	/****************************************/
+	
+	/**********************/
+	/***** SET COLOUR *****/
+	/**********************/
+	
+	/**
+	 * @param Int colour
+	 */
+	
+	private void setColour(int colour) {
+		
+		for (int i = 0; i < this.size * this.size; i++) {
+			
+			pixels[i] = colour;
+			
+		}
 		
 	}
 	

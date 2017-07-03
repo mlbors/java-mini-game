@@ -10,8 +10,8 @@ import com.mlbors.mini_game.graphics.Sprite;
  * @version 1.0.0.0
  */
 
-public class Tile {
-
+public class VoidTile extends Tile {
+	
 	/**********************/
 	/***** PROPERTIES *****/
 	/**********************/
@@ -20,9 +20,6 @@ public class Tile {
 	/***** PUBLIC *****/
 	/*****/
 	
-	public int x, y;
-	public Sprite sprite;
-	
 	/*****/
 	/***** PRIVATE *****/
 	/*****/
@@ -30,34 +27,12 @@ public class Tile {
 	/****************************************/
 	/****************************************/
 	
-	/*****************/
-	/***** GRASS *****/
-	/*****************/
-	
-	public static Tile grass = new GrassTile(Sprite.grass);
-	
-	/****************************************/
-	/****************************************/
-	
-	/****************/
-	/***** VOID *****/
-	/****************/
-	
-	public static Tile voidTile = new VoidTile(Sprite.voidSprite);
-	
-	/****************************************/
-	/****************************************
-	
 	/***********************/
 	/***** CONSTRUCTOR *****/
 	/***********************/
-	
-	/**
-	 * @param Sprite sprite the tile sprite
-	 */
-	
-	public Tile(Sprite sprite) {
-		this.sprite = sprite;
+
+	public VoidTile(Sprite sprite) {
+		super(sprite);
 	}
 	
 	/****************************************/
@@ -74,18 +49,7 @@ public class Tile {
 	 */
 	
 	public void render(int x, int y, Screen screen) {
-		
-	}
-	
-	/****************************************/
-	/****************************************/
-	
-	/*****************/
-	/***** SOLID *****/
-	/*****************/
-	
-	public boolean solid() {
-		return false;
+		screen.renderTile(x, y, this);
 	}
 	
 }
