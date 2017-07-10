@@ -30,6 +30,9 @@ public class Screen {
 	public int width;
 	public int height;
 	
+	public int xOffset;
+	public int yOffset;
+	
 	/*****/
 	/***** PRIVATE *****/
 	/*****/
@@ -109,6 +112,9 @@ public class Screen {
 	
 	public void renderTile(int xp, int yp, Tile tile) {
 		
+		xp -= xOffset;
+		yp -= yOffset;
+		
 		for (int y = 0; y < tile.sprite.size; y++) {	
 			
 			int ya = y + yp;
@@ -124,6 +130,25 @@ public class Screen {
 			
 		}
 	
+	}
+	
+	/****************************************/
+	/****************************************/
+	
+	/**********************/
+	/***** SET OFFSET *****/
+	/**********************/
+	
+	/**
+	 * @param Int xOffset x offset
+	 * @param Int yOffset y offset
+	 */
+	
+	public void setOffset(int xOffset, int yOffset) {
+		
+		this.xOffset = xOffset;
+		this.yOffset = yOffset;
+		
 	}
 	
 	/****************************************/
